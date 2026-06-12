@@ -1,0 +1,34 @@
+{
+  "stage_code": "1001D_R1_INTENT_CLARIFICATION_CARD_FIXTURE",
+  "final_status": "XIAOJIAO_INTENT_CLARIFICATION_CARD_FIXTURE_PASS",
+  "pass": true,
+  "marker": "ALL_1001D_R1_INTENT_CLARIFICATION_CARD_FIXTURE_CHECKS_OK",
+  "summary": "1001D_R1 proves with static fixtures that ambiguous teacher utterances and parameter-needed actions can be converted into confirmed_intent records through semantic confirmation cards without executing model calls.",
+  "fixture_only": true,
+  "validator_no_arg_pass": true,
+  "validator_root_pass": true,
+  "manifest_zip_alignment_pass": true,
+  "case_count": 5,
+  "card_types": [
+    "inline_chips",
+    "small_card",
+    "parameter_drawer"
+  ],
+  "confirmed_intent_source": "clarification_card_selection",
+  "token_cost_for_all_cases": 0,
+  "boundary_flags": {
+    "real_intent_parser_implemented": false,
+    "real_clarification_ui_implemented": false,
+    "real_frontend_modified": false,
+    "runtime_connected": false,
+    "provider_model_called": false,
+    "database_written": false,
+    "memory_written": false,
+    "feishu_written": false,
+    "formal_export_created": false,
+    "classroom_student_runtime_connected": false,
+    "entered_1000F": false
+  },
+  "next_stage": "1001D_R1_REVIEW_PENDING_BEFORE_1000F",
+  "deferred_stage": "1000F_MODEL_CANDIDATE_AND_RESOURCE_CONTEXT_INTEGRATION"
+}

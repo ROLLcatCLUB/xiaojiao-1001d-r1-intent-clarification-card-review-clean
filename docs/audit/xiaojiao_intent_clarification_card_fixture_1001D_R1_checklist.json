@@ -1,0 +1,49 @@
+{
+  "stage_code": "1001D_R1_INTENT_CLARIFICATION_CARD_FIXTURE",
+  "checks": [
+    {
+      "id": "source_gate_1001g_pass",
+      "pass": true
+    },
+    {
+      "id": "fixture_cases_cover_required_utterances",
+      "pass": true
+    },
+    {
+      "id": "card_types_cover_inline_small_and_drawer",
+      "pass": true
+    },
+    {
+      "id": "every_card_has_2_to_4_options",
+      "pass": true
+    },
+    {
+      "id": "every_case_has_teacher_selection",
+      "pass": true
+    },
+    {
+      "id": "every_case_emits_confirmed_intent_confidence_1",
+      "pass": true
+    },
+    {
+      "id": "every_case_hands_to_action_gate",
+      "pass": true
+    },
+    {
+      "id": "all_cases_token_cost_zero",
+      "pass": true
+    },
+    {
+      "id": "no_model_call_executed",
+      "pass": true
+    },
+    {
+      "id": "preference_is_candidate_only_no_memory_write",
+      "pass": true
+    },
+    {
+      "id": "manifest_zip_alignment_empty",
+      "pass": true
+    }
+  ]
+}

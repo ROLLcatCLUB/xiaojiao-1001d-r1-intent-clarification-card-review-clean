@@ -1,0 +1,105 @@
+{
+    "package_name":  "xiaojiao_intent_clarification_card_fixture_1001D_R1",
+    "package_code":  "1001_XIAOJIAO_STATE_DRIVEN_INTELLIGENCE_ENGINE_PACKAGE",
+    "stage_code":  "1001D_R1_INTENT_CLARIFICATION_CARD_FIXTURE",
+    "final_status":  "XIAOJIAO_INTENT_CLARIFICATION_CARD_FIXTURE_PASS",
+    "generated_at":  "2026-06-13T00:00:00+08:00",
+    "zip_path":  "docs/audit_packages/xiaojiao_intent_clarification_card_fixture_1001D_R1.zip",
+    "zip_sha256":  "EXTERNAL_RECOMPUTATION_REQUIRED",
+    "zip_entry_count":  10,
+    "package_structure_note":  "This ZIP is the package itself. A complete GitHub review tree should include this ZIP under docs/audit_packages/ for validator replay.",
+    "manifest_minus_zip":  [
+
+                           ],
+    "zip_minus_manifest":  [
+
+                           ],
+    "zip_entries":  [
+                        "docs/audit/xiaojiao_state_driven_intelligence_engine_end_to_end_dry_run_1001G_result.json",
+                        "docs/audit/xiaojiao_intent_parser_and_fallback_rule_fixture_1001D_review_decision.json",
+                        "docs/foundation/xiaojiao_intent_clarification_card_fixture_1001D_R1.md",
+                        "docs/foundation/xiaojiao_intent_clarification_card_fixture_1001D_R1.json",
+                        "samples/xiaojiao_intent_clarification_card_fixture_1001D_R1/intent_clarification_card_fixture_1001D_R1.json",
+                        "docs/audit/xiaojiao_intent_clarification_card_fixture_1001D_R1_result.json",
+                        "docs/audit/xiaojiao_intent_clarification_card_fixture_1001D_R1_report.md",
+                        "docs/audit/xiaojiao_intent_clarification_card_fixture_1001D_R1_checklist.json",
+                        "docs/audit_packages/xiaojiao_intent_clarification_card_fixture_1001D_R1_manifest.json",
+                        "scripts/validate_xiaojiao_intent_clarification_card_fixture_1001D_R1.py"
+                    ],
+    "entries":  [
+                    {
+                        "path":  "docs/audit/xiaojiao_state_driven_intelligence_engine_end_to_end_dry_run_1001G_result.json",
+                        "size":  738,
+                        "sha256":  "4E066293162E6830D31483DA3AE7295D3A79B422EAA17EF394EA457CD5DCD663"
+                    },
+                    {
+                        "path":  "docs/audit/xiaojiao_intent_parser_and_fallback_rule_fixture_1001D_review_decision.json",
+                        "size":  2185,
+                        "sha256":  "EB67FA5D54AF610209C66E1EE67C2E6324C4156F50576BFC4BF0CCB6EC7DD16B"
+                    },
+                    {
+                        "path":  "docs/foundation/xiaojiao_intent_clarification_card_fixture_1001D_R1.md",
+                        "size":  2713,
+                        "sha256":  "527CDC96D07EEF7545C60F8792DCE5A656184C75F22612E1D71445D0F402C446"
+                    },
+                    {
+                        "path":  "docs/foundation/xiaojiao_intent_clarification_card_fixture_1001D_R1.json",
+                        "size":  2087,
+                        "sha256":  "D6A53C2530FA6BA86C67903567E82F5B26804434129C4D64E955E0ABF76B9DF3"
+                    },
+                    {
+                        "path":  "samples/xiaojiao_intent_clarification_card_fixture_1001D_R1/intent_clarification_card_fixture_1001D_R1.json",
+                        "size":  13568,
+                        "sha256":  "5600C58AD56CC36A0C9D293D6359ABCE506093C9C25015D8A328CB34B0ED8547"
+                    },
+                    {
+                        "path":  "docs/audit/xiaojiao_intent_clarification_card_fixture_1001D_R1_result.json",
+                        "size":  1337,
+                        "sha256":  "79CFEECB5099E8E2838468A6DFFB620FAAF78102F951D6E9D39C1A6453910A3E"
+                    },
+                    {
+                        "path":  "docs/audit/xiaojiao_intent_clarification_card_fixture_1001D_R1_report.md",
+                        "size":  1620,
+                        "sha256":  "D877DADCED7BE6DA384873C778DD78E3B80926F3490B042D164D87A0CFA4F127"
+                    },
+                    {
+                        "path":  "docs/audit/xiaojiao_intent_clarification_card_fixture_1001D_R1_checklist.json",
+                        "size":  969,
+                        "sha256":  "DA3EF715188DF2912E0DDFDEC6058ED321FF4A337559D9ADBF5026C7250F7D92"
+                    },
+                    {
+                        "path":  "docs/audit_packages/xiaojiao_intent_clarification_card_fixture_1001D_R1_manifest.json",
+                        "size":  null,
+                        "sha256":  "SELF_REFERENTIAL",
+                        "sha256_policy":  "manifest self hash is intentionally not materialized because the manifest contains its own metadata"
+                    },
+                    {
+                        "path":  "scripts/validate_xiaojiao_intent_clarification_card_fixture_1001D_R1.py",
+                        "size":  6527,
+                        "sha256":  "BC899E5A7AD7E8514E4165672EB2E7290E93236B0660B04BCD315DD2AC82E931"
+                    }
+                ],
+    "boundary":  {
+                     "runtime_change_allowed":  false,
+                     "ui_implementation_allowed":  false,
+                     "real_frontend_modification_allowed":  false,
+                     "provider_model_call_allowed":  false,
+                     "database_write_allowed":  false,
+                     "memory_write_allowed":  false,
+                     "feishu_write_allowed":  false,
+                     "formal_export_allowed":  false,
+                     "classroom_student_runtime_allowed":  false,
+                     "enter_1000F_allowed":  false,
+                     "real_intent_parser_implemented":  false,
+                     "real_clarification_ui_implemented":  false,
+                     "real_frontend_modified":  false,
+                     "runtime_connected":  false,
+                     "provider_model_called":  false,
+                     "database_written":  false,
+                     "memory_written":  false,
+                     "feishu_written":  false,
+                     "formal_export_created":  false,
+                     "classroom_student_runtime_connected":  false,
+                     "entered_1000F":  false
+                 }
+}

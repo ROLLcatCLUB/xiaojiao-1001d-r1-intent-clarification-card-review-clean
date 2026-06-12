@@ -1,0 +1,49 @@
+{
+  "stage_code": "1001D_INTENT_PARSER_AND_FALLBACK_RULE_FIXTURE",
+  "review_date": "2026-06-13",
+  "review_decision": "ACCEPT",
+  "final_status": "XIAOJIAO_INTENT_PARSER_AND_FALLBACK_RULE_FIXTURE_PASS",
+  "caveat": {
+    "code": "FIXTURE_ONLY_NOT_REAL_INTENT_PARSER_IMPLEMENTATION",
+    "meaning": "1001D proves intent parsing and fallback routing with static fixtures. It does not implement a real Intent Parser, classifier, runtime route, or production UI."
+  },
+  "minor_caveat": {
+    "code": "ZIP_SHA256_EXTERNAL_RECOMPUTATION_REQUIRED_NON_BLOCKING",
+    "meaning": "The package manifest keeps zip_sha256 as EXTERNAL_RECOMPUTATION_REQUIRED while manifest/ZIP alignment passes."
+  },
+  "accepted": [
+    "required_teacher_utterances_covered",
+    "deterministic_rule_intents_zero_token",
+    "lightweight_semantic_stub_intents_zero_token",
+    "fallback_clarification_without_model_call",
+    "model_candidate_cases_deferred_not_executed",
+    "preference_candidate_intent_does_not_write_memory",
+    "action_gate_mapping_present",
+    "observation_metrics_present"
+  ],
+  "boundary_confirmed": {
+    "fixture_only": true,
+    "real_intent_parser_implemented": false,
+    "real_classifier_implemented": false,
+    "real_ui_implemented": false,
+    "real_frontend_modified": false,
+    "runtime_connected": false,
+    "provider_model_called": false,
+    "database_written": false,
+    "memory_written": false,
+    "feishu_written": false,
+    "formal_export_created": false,
+    "classroom_student_runtime_connected": false,
+    "entered_1000F": false,
+    "entered_1001E": false
+  },
+  "next_stage": "1001E_GENERATION_PIPELINE_CONTEXT_TRIMMING_FIXTURE_PENDING_REVIEW",
+  "defer": [
+    "1000F_MODEL_CANDIDATE_AND_RESOURCE_CONTEXT_INTEGRATION"
+  ],
+  "github_review": {
+    "repo": "https://github.com/ROLLcatCLUB/xiaojiao-1001d-intent-parser-fallback-rule-fixture-review",
+    "commit": "96398bdc8953cbd047171cc4408f60b7654a82ef",
+    "raw_result": "https://raw.githubusercontent.com/ROLLcatCLUB/xiaojiao-1001d-intent-parser-fallback-rule-fixture-review/96398bdc8953cbd047171cc4408f60b7654a82ef/docs/audit/xiaojiao_intent_parser_and_fallback_rule_fixture_1001D_result.json"
+  }
+}

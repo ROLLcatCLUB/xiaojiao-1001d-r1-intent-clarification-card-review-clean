@@ -1,0 +1,375 @@
+{
+  "fixture_id": "intent_clarification_card_fixture_1001D_R1",
+  "stage_code": "1001D_R1_INTENT_CLARIFICATION_CARD_FIXTURE",
+  "fixture_type": "static_intent_clarification_card_fixture_only",
+  "semantic_principle": "stable_schema_iterative_semantics",
+  "card_schema": {
+    "card_id": "string",
+    "card_type": "inline_chips | small_card | parameter_drawer",
+    "trigger_reason": "low_confidence | ambiguous_reference | generation_parameters_needed | revision_direction_needed | preference_confirmation_needed",
+    "attach_to": "work_object_ref",
+    "title": "string",
+    "options": [
+      {
+        "option_id": "string",
+        "label": "string",
+        "intent": "string",
+        "target_object": "string",
+        "action_gate": "string",
+        "context_pack_hints": {}
+      }
+    ]
+  },
+  "confirmed_intent_schema": {
+    "intent": "string",
+    "target_object": "string",
+    "confidence": 1.0,
+    "source": "clarification_card_selection",
+    "selected_option_id": "string",
+    "action_gate": "string"
+  },
+  "baseline_registries": {
+    "intent_registry": [
+      "prepare_lesson",
+      "view_today",
+      "generate_handout",
+      "view_handout_status",
+      "revise_handout",
+      "revise_section",
+      "apply_style_preference_candidate",
+      "defer_current"
+    ],
+    "utterance_pattern_registry": [
+      "先帮我看一下这个",
+      "学习单那个先弄一下",
+      "这节课处理一下",
+      "第二环节改一下",
+      "按刚才那个风格来"
+    ],
+    "clarification_card_registry": [
+      "card_ambiguous_this_object",
+      "card_handout_action",
+      "card_lesson_action",
+      "card_revision_direction",
+      "card_style_preference_candidate"
+    ],
+    "context_pack_policy_registry": [
+      "handout_generation_minimal_context",
+      "section_revision_scoped_context",
+      "lesson_preparation_focus_context"
+    ],
+    "preference_candidate_registry": [
+      "teacher_prefers_compact_lesson_structure",
+      "teacher_prefers_lower_handout_difficulty",
+      "teacher_prefers_previous_style_reuse"
+    ],
+    "observation_metric_registry": [
+      "clarification_card_shown_count",
+      "clarification_selection_rate",
+      "clarification_abandon_rate",
+      "option_selection_distribution",
+      "confirmed_intent_rate",
+      "generation_parameter_completion_rate",
+      "revision_direction_selection_rate",
+      "preference_candidate_confirmation_rate"
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "ambiguous_this_object",
+      "teacher_input": "先帮我看一下这个",
+      "initial_intent": "unknown_ambiguous",
+      "initial_confidence": 0.52,
+      "trigger_reason": "ambiguous_reference",
+      "clarification_card": {
+        "card_id": "card_ambiguous_this_object",
+        "card_type": "small_card",
+        "attach_to": "lesson_G4_A2_L003",
+        "title": "你想看哪一项？",
+        "options": [
+          {
+            "option_id": "opt_prepare_lesson",
+            "label": "准备这节课",
+            "intent": "prepare_lesson",
+            "target_object": "lesson_G4_A2_L003",
+            "action_gate": "focus_lesson_and_compose_preparation",
+            "model_candidate_required": false
+          },
+          {
+            "option_id": "opt_view_today",
+            "label": "查看今天工作",
+            "intent": "view_today",
+            "target_object": "today_work_items",
+            "action_gate": "compose_today_sequence",
+            "model_candidate_required": false
+          },
+          {
+            "option_id": "opt_defer",
+            "label": "稍后处理",
+            "intent": "defer_current",
+            "target_object": "lesson_G4_A2_L003",
+            "action_gate": "defer_current_work_object",
+            "model_candidate_required": false
+          }
+        ]
+      },
+      "teacher_selected_option_id": "opt_prepare_lesson",
+      "confirmed_intent": {
+        "intent": "prepare_lesson",
+        "target_object": "lesson_G4_A2_L003",
+        "confidence": 1.0,
+        "source": "clarification_card_selection",
+        "selected_option_id": "opt_prepare_lesson",
+        "action_gate": "focus_lesson_and_compose_preparation"
+      },
+      "token_cost": 0,
+      "model_call_executed": false
+    },
+    {
+      "case_id": "handout_do_that",
+      "teacher_input": "学习单那个先弄一下",
+      "initial_intent": "unknown_ambiguous",
+      "initial_confidence": 0.61,
+      "trigger_reason": "generation_parameters_needed",
+      "clarification_card": {
+        "card_id": "card_handout_action",
+        "card_type": "parameter_drawer",
+        "attach_to": "handout_G4_A2_L003",
+        "title": "学习单想怎么处理？",
+        "options": [
+          {
+            "option_id": "opt_generate_simple_practice",
+            "label": "生成课堂练习型，简单一点",
+            "intent": "generate_handout",
+            "target_object": "handout_G4_A2_L003",
+            "action_gate": "prepare_generation_candidate_boundary",
+            "model_candidate_required": true,
+            "context_pack_hints": {
+              "handout_type": "classroom_practice",
+              "difficulty": "simple",
+              "include_evaluation": true
+            }
+          },
+          {
+            "option_id": "opt_view_handout_status",
+            "label": "查看学习单状态",
+            "intent": "view_handout_status",
+            "target_object": "handout_G4_A2_L003",
+            "action_gate": "focus_work_object",
+            "model_candidate_required": false
+          },
+          {
+            "option_id": "opt_revise_existing",
+            "label": "修改已有学习单",
+            "intent": "revise_handout",
+            "target_object": "handout_G4_A2_L003",
+            "action_gate": "prepare_scoped_revision_candidate_boundary",
+            "model_candidate_required": true
+          }
+        ]
+      },
+      "teacher_selected_option_id": "opt_generate_simple_practice",
+      "confirmed_intent": {
+        "intent": "generate_handout",
+        "target_object": "handout_G4_A2_L003",
+        "confidence": 1.0,
+        "source": "clarification_card_selection",
+        "selected_option_id": "opt_generate_simple_practice",
+        "action_gate": "prepare_generation_candidate_boundary",
+        "context_pack_hints": {
+          "handout_type": "classroom_practice",
+          "difficulty": "simple",
+          "include_evaluation": true
+        }
+      },
+      "token_cost": 0,
+      "model_call_executed": false
+    },
+    {
+      "case_id": "lesson_handle_this",
+      "teacher_input": "这节课处理一下",
+      "initial_intent": "unknown_ambiguous",
+      "initial_confidence": 0.58,
+      "trigger_reason": "low_confidence",
+      "clarification_card": {
+        "card_id": "card_lesson_action",
+        "card_type": "small_card",
+        "attach_to": "lesson_G4_A2_L003",
+        "title": "你想先处理这节课的哪一步？",
+        "options": [
+          {
+            "option_id": "opt_confirm_draft",
+            "label": "确认课时草稿",
+            "intent": "confirm_current",
+            "target_object": "lesson_G4_A2_L003",
+            "action_gate": "confirm_current_draft",
+            "model_candidate_required": false
+          },
+          {
+            "option_id": "opt_prepare_lesson",
+            "label": "准备课堂材料",
+            "intent": "prepare_lesson",
+            "target_object": "lesson_G4_A2_L003",
+            "action_gate": "focus_lesson_and_compose_preparation",
+            "model_candidate_required": false
+          },
+          {
+            "option_id": "opt_generate_handout",
+            "label": "生成学习单",
+            "intent": "generate_handout",
+            "target_object": "handout_G4_A2_L003",
+            "action_gate": "prepare_generation_candidate_boundary",
+            "model_candidate_required": true
+          }
+        ]
+      },
+      "teacher_selected_option_id": "opt_confirm_draft",
+      "confirmed_intent": {
+        "intent": "confirm_current",
+        "target_object": "lesson_G4_A2_L003",
+        "confidence": 1.0,
+        "source": "clarification_card_selection",
+        "selected_option_id": "opt_confirm_draft",
+        "action_gate": "confirm_current_draft"
+      },
+      "token_cost": 0,
+      "model_call_executed": false
+    },
+    {
+      "case_id": "revise_second_section",
+      "teacher_input": "第二环节改一下",
+      "initial_intent": "revise_section",
+      "initial_confidence": 0.68,
+      "trigger_reason": "revision_direction_needed",
+      "clarification_card": {
+        "card_id": "card_revision_direction",
+        "card_type": "small_card",
+        "attach_to": "lesson_G4_A2_L003.section_2",
+        "title": "第二环节想怎么改？",
+        "options": [
+          {
+            "option_id": "opt_shorten_keep_activity",
+            "label": "缩短时间，保留活动",
+            "intent": "revise_section",
+            "target_object": "lesson_G4_A2_L003.section_2",
+            "action_gate": "prepare_scoped_revision_candidate_boundary",
+            "model_candidate_required": true,
+            "context_pack_hints": {
+              "revision_direction": "shorten_duration_keep_activity",
+              "scope": "section_only"
+            }
+          },
+          {
+            "option_id": "opt_reduce_steps",
+            "label": "减少活动步骤",
+            "intent": "revise_section",
+            "target_object": "lesson_G4_A2_L003.section_2",
+            "action_gate": "prepare_scoped_revision_candidate_boundary",
+            "model_candidate_required": true,
+            "context_pack_hints": {
+              "revision_direction": "reduce_steps",
+              "scope": "section_only"
+            }
+          },
+          {
+            "option_id": "opt_teacher_demo",
+            "label": "压缩成教师示范",
+            "intent": "revise_section",
+            "target_object": "lesson_G4_A2_L003.section_2",
+            "action_gate": "prepare_scoped_revision_candidate_boundary",
+            "model_candidate_required": true,
+            "context_pack_hints": {
+              "revision_direction": "convert_to_teacher_demo",
+              "scope": "section_only"
+            }
+          }
+        ]
+      },
+      "teacher_selected_option_id": "opt_shorten_keep_activity",
+      "confirmed_intent": {
+        "intent": "revise_section",
+        "target_object": "lesson_G4_A2_L003.section_2",
+        "confidence": 1.0,
+        "source": "clarification_card_selection",
+        "selected_option_id": "opt_shorten_keep_activity",
+        "action_gate": "prepare_scoped_revision_candidate_boundary",
+        "context_pack_hints": {
+          "revision_direction": "shorten_duration_keep_activity",
+          "scope": "section_only"
+        }
+      },
+      "token_cost": 0,
+      "model_call_executed": false
+    },
+    {
+      "case_id": "same_style_preference",
+      "teacher_input": "按刚才那个风格来",
+      "initial_intent": "save_preference_candidate",
+      "initial_confidence": 0.66,
+      "trigger_reason": "preference_confirmation_needed",
+      "clarification_card": {
+        "card_id": "card_style_preference_candidate",
+        "card_type": "inline_chips",
+        "attach_to": "teacher_profile_candidate",
+        "title": "要把这种风格记为候选偏好吗？",
+        "options": [
+          {
+            "option_id": "opt_candidate_only",
+            "label": "先记为候选",
+            "intent": "apply_style_preference_candidate",
+            "target_object": "teacher_profile_candidate",
+            "action_gate": "record_preference_candidate_only",
+            "model_candidate_required": false,
+            "memory_write_required": false,
+            "preference_candidate_code": "teacher_prefers_previous_style_reuse"
+          },
+          {
+            "option_id": "opt_once_only",
+            "label": "只这次使用",
+            "intent": "revise_section",
+            "target_object": "lesson_G4_A2_L003",
+            "action_gate": "prepare_scoped_revision_candidate_boundary",
+            "model_candidate_required": true,
+            "memory_write_required": false
+          }
+        ]
+      },
+      "teacher_selected_option_id": "opt_candidate_only",
+      "confirmed_intent": {
+        "intent": "apply_style_preference_candidate",
+        "target_object": "teacher_profile_candidate",
+        "confidence": 1.0,
+        "source": "clarification_card_selection",
+        "selected_option_id": "opt_candidate_only",
+        "action_gate": "record_preference_candidate_only",
+        "memory_write_required": false,
+        "preference_candidate_code": "teacher_prefers_previous_style_reuse"
+      },
+      "token_cost": 0,
+      "model_call_executed": false
+    }
+  ],
+  "observation_metrics": [
+    "clarification_card_shown_count",
+    "clarification_selection_rate",
+    "clarification_abandon_rate",
+    "option_selection_distribution",
+    "confirmed_intent_rate",
+    "generation_parameter_completion_rate",
+    "revision_direction_selection_rate",
+    "preference_candidate_confirmation_rate"
+  ],
+  "boundary_flags": {
+    "real_intent_parser_implemented": false,
+    "real_clarification_ui_implemented": false,
+    "real_frontend_modified": false,
+    "runtime_connected": false,
+    "provider_model_called": false,
+    "database_written": false,
+    "memory_written": false,
+    "feishu_written": false,
+    "formal_export_created": false,
+    "classroom_student_runtime_connected": false,
+    "entered_1000F": false
+  }
+}
